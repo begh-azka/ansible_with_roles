@@ -1,0 +1,22 @@
+---
+- name: Ubuntu tasks     #Name does not matter. tasks execute in order
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: CentOS tasks
+  import_tasks: centos.yml
+  when: ansible_distribution == "CentOS"
+
+- name: Configure apache
+  copy:
+    src: index.html
+    dest: /var/www/html/
+  notify: restart needed
+
+- name: File module
+  file:
+    path: /var/www/html/index.html
+  register: pathout
+  until: "pathout is not failed"
+  retries: 3
+  delay: 3

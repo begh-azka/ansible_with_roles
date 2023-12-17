@@ -1,0 +1,11 @@
+---
+- name: Install apache on Ubuntu
+  apt:
+    name: apache2
+    state: latest
+
+- name: Template module
+  template:
+    src: ubuntu_ntp.conf
+    dest: /etc/ntp.conf
+    backup: yes 

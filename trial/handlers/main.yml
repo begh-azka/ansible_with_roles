@@ -1,0 +1,15 @@
+---
+# handlers file for azka
+ - name: Restart the service on CentOS
+   service:
+     name: httpd
+     state: restarted
+   when: ansible_facts["distribution"] == "CentOS"
+   listen: restart needed
+
+ - name: Restart the service on Ubuntu
+   service:
+     name: apache2
+     state: restarted
+   when: ansible_facts["distribution"] == "Ubuntu"
+   listen: restart needed
