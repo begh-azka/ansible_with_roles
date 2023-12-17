@@ -1,9 +1,10 @@
 ---
-- name: Ubuntu tasks
+- name: Ubuntu tasks     #Name does not matter. tasks execute in order
   import_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- import_tasks: centos.yml
+- name: CentOS tasks
+  import_tasks: centos.yml
   when: ansible_distribution == "CentOS"
 
 - name: Configure apache
