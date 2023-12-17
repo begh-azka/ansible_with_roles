@@ -1,5 +1,0 @@
----
-- name: Copy, File and Template modules
-  hosts: all
-  roles:
-       - azka 

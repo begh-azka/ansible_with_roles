@@ -1,0 +1,14 @@
+---
+- name: Copy, File and Template modules
+  hosts: all
+  tasks:
+    - name: Printing message before role/tasks run
+      debug:
+        msg: "  Before we run our role "
+    - import_role:
+        name: trial
+
+    - name: Printing message after role/tasks run
+      debug:
+        msg: "  After we run our role  "
+
